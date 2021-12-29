@@ -23,9 +23,7 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: 
-          name: Insatll Node dependencies
-          command: install
+      - run: npm install
 
       - run:
           name: Install JUnit coverage reporter
@@ -39,7 +37,7 @@ jobs:
       # run tests!
       - run:
           name: Run tests with JUnit as reporter
-          command: test
+          command: npm test
           environment:
             JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
       
