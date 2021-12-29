@@ -28,8 +28,8 @@ jobs:
           command: install
 
       - run:
-        name: Install JUnit coverage reporter
-        command: npm install --dev jest-junit
+          name: Install JUnit coverage reporter
+          command: npm install --dev jest-junit
 
       - save_cache:
           paths:
