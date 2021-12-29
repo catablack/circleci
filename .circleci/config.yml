@@ -4,7 +4,7 @@
 #
 version: 2
 jobs:
-  run-tests:
+  build:
     docker:
      - image: cimg/node:17.3.0
 
