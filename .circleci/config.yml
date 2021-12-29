@@ -23,7 +23,13 @@ jobs:
           # fallback to using the latest cache if no exact match is found
           - v1-dependencies-
 
-      - run: npm install
+      - run: 
+          name: Insatll Node dependencies
+          command: install
+
+      - run:
+        name: Install JUnit coverage reporter
+        command: npm install --dev jest-junit
 
       - save_cache:
           paths:
@@ -31,4 +37,14 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       # run tests!
-      - run: npm test
+      - run:
+        name: Run tests with JUnit as reporter
+        command: test
+      environment:
+        JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
+      
+      - store_test_results:
+        path: ./reports/junit/
+        
+      - store_artifacts:
+          path: ./reports/junit
