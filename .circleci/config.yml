@@ -38,10 +38,10 @@ jobs:
 
       # run tests!
       - run:
-        name: Run tests with JUnit as reporter
-        command: test
-        environment:
-          JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
+          name: Run tests with JUnit as reporter
+          command: test
+          environment:
+            JEST_JUNIT_OUTPUT_DIR: ./reports/junit/
       
       - store_test_results:
         path: ./reports/junit/
